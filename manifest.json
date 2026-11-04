@@ -1,0 +1,9 @@
+{
+  "display_name": "Журнал заданий · Магическая битва",
+  "loading_order": 90,
+  "requires": [],
+  "optional": [],
+  "js": "index.js",
+  "css": "style.css",
+  "version": "1.0.0"
+}

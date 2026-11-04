@@ -1,0 +1,560 @@
+.jjk-mission-launcher {
+    position: relative;
+    display: inline-grid;
+    flex: 0 0 2.375rem;
+    place-items: center;
+    align-self: center;
+    width: 2.375rem;
+    min-height: 2.25rem;
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: .375rem;
+    background: transparent;
+    color: var(--SmartThemeBodyColor, currentColor);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.jjk-mission-launcher:hover {
+    border-color: #f2c7856b;
+    background: #f2c78520;
+}
+
+.jjk-mission-launcher:focus-visible {
+    outline: 2px solid #f2c785;
+    outline-offset: -2px;
+}
+
+.jjk-mission-launcher-badge {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: -.125rem;
+    display: inline-grid;
+    place-items: center;
+    min-width: 1rem;
+    min-height: .9375rem;
+    padding: .0625rem .1875rem;
+    border: 1px solid #21170f;
+    border-radius: 999px;
+    background: #f2c785;
+    color: #21170f;
+    font: 750 .625rem / 1 system-ui, sans-serif;
+    font-variant-numeric: tabular-nums;
+    pointer-events: none;
+}
+
+.jjk-mission-launcher[hidden],
+.jjk-mission-launcher-badge[hidden] {
+    display: none !important;
+}
+
+.jjk-mission-dialog {
+    width: min(calc(100% - 1rem), 35rem);
+    max-width: none;
+    max-height: min(90vh, 52rem);
+    max-height: min(90dvh, 52rem);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 0;
+    border-radius: 1rem;
+    background: #111a2a;
+    color: #edf2f9;
+    box-shadow: 0 1rem 3rem #05070bd9;
+}
+
+.jjk-mission-dialog::backdrop {
+    background: #050810bb;
+}
+
+.jjk-mission-desk {
+    --jjk-ink: #edf2f9;
+    --jjk-muted: #b6c2d3;
+    --jjk-surface: #111a2a;
+    --jjk-raised: #182337;
+    --jjk-border: #37465d;
+    --jjk-accent: #f2c785;
+    --jjk-accent-muted: #b89a70;
+    --jjk-success: #9ed5bb;
+    --jjk-critical: #f1ada3;
+    display: grid;
+    gap: 0;
+    min-width: 0;
+    width: 100%;
+    max-width: 35rem;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid var(--jjk-border);
+    border-radius: 1rem;
+    background: var(--jjk-surface);
+    color: var(--jjk-ink);
+    font: 400 .9375rem / 1.5 system-ui, sans-serif;
+    text-align: start;
+    color-scheme: dark;
+}
+
+.jjk-mission-desk *,
+.jjk-mission-desk *::before,
+.jjk-mission-desk *::after {
+    box-sizing: border-box;
+}
+
+.jjk-mission-desk :where(h2, h3, p, ol, ul) {
+    margin: 0;
+    padding: 0;
+}
+
+.jjk-mission-desk :where(button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid var(--jjk-accent);
+    outline-offset: 3px;
+}
+
+.jjk-mission-desk .jjk-desk-header {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    gap: .5rem;
+    padding: 1.2rem 1.25rem 1.25rem;
+    overflow: hidden;
+    border-bottom: 1px solid var(--jjk-border);
+    background:
+        linear-gradient(112deg, #243249 0, #182337 70%),
+        var(--jjk-raised);
+}
+
+.jjk-mission-desk .jjk-desk-header::before {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        repeating-linear-gradient(0deg, transparent 0 16px, #b2c7ed0d 16px 17px),
+        repeating-linear-gradient(90deg, transparent 0 16px, #b2c7ed0d 16px 17px);
+    content: "";
+}
+
+.jjk-mission-desk .jjk-desk-header::after {
+    position: absolute;
+    z-index: -1;
+    top: .25rem;
+    right: -.55rem;
+    width: 9.75rem;
+    aspect-ratio: 1;
+    border: 1px solid #f2c7854d;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at center, #f2c7852b 0 6%, transparent 7% 24%, #f2c78547 25% 26%, transparent 27% 39%, #f2c78533 40% 41%, transparent 42% 55%, #f2c78533 56% 57%, transparent 58%),
+        conic-gradient(from -50deg, #f2c78524 0deg, transparent 76deg, transparent 360deg);
+    content: "";
+    pointer-events: none;
+}
+
+.jjk-mission-desk .jjk-desk-kicker,
+.jjk-mission-desk .jjk-desk-meta,
+.jjk-mission-desk .jjk-desk-label {
+    font-size: .6875rem;
+    font-weight: 750;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.jjk-mission-desk .jjk-desk-kicker,
+.jjk-mission-desk .jjk-desk-label {
+    color: var(--jjk-accent);
+}
+
+.jjk-mission-desk .jjk-desk-kicker,
+.jjk-mission-desk .jjk-desk-title {
+    padding-right: 2.75rem;
+}
+
+.jjk-mission-desk .jjk-desk-title {
+    max-width: 19em;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 760;
+    line-height: 1.1;
+    letter-spacing: -.032em;
+    color: var(--jjk-ink);
+}
+
+.jjk-mission-desk .jjk-desk-subtitle {
+    max-width: 27ch;
+    color: var(--jjk-muted);
+    font-size: .8125rem;
+}
+
+.jjk-mission-desk .jjk-desk-body {
+    display: grid;
+    gap: .9375rem;
+    padding: 1rem 1.25rem;
+}
+
+.jjk-mission-desk .jjk-desk-notice {
+    padding: .5rem .625rem;
+    border-left: .1875rem solid var(--jjk-accent);
+    background: var(--jjk-raised);
+    color: var(--jjk-ink);
+    font-size: .8125rem;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-notice:empty {
+    display: none;
+}
+
+.jjk-mission-desk .jjk-desk-phase-line,
+.jjk-mission-desk .jjk-desk-actions,
+.jjk-mission-desk .jjk-desk-progress-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+}
+
+.jjk-mission-desk .jjk-desk-phase {
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    padding: .1875rem .5625rem;
+    border: 1px solid #574b3b;
+    border-radius: 999px;
+    background: #2c2827;
+    color: var(--jjk-accent);
+    font-size: .6875rem;
+    font-weight: 750;
+    line-height: 1.5;
+}
+
+.jjk-mission-desk .jjk-desk-phase::before {
+    width: .375rem;
+    height: .375rem;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.jjk-mission-desk .jjk-desk-phase.is-active {
+    border-color: #3e6559;
+    background: #213831;
+    color: var(--jjk-success);
+}
+
+.jjk-mission-desk .jjk-desk-phase.is-idle {
+    border-color: var(--jjk-border);
+    background: var(--jjk-raised);
+    color: var(--jjk-muted);
+}
+
+.jjk-mission-desk .jjk-desk-meta,
+.jjk-mission-desk .jjk-desk-note {
+    color: var(--jjk-muted);
+}
+
+.jjk-mission-desk .jjk-desk-note {
+    font-size: .8125rem;
+}
+
+.jjk-mission-desk .jjk-desk-mission {
+    display: grid;
+    gap: .5rem;
+    min-width: 0;
+}
+
+.jjk-mission-desk .jjk-desk-mission-title {
+    font-size: 1.25rem;
+    font-weight: 730;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3125rem;
+}
+
+.jjk-mission-desk .jjk-desk-tag {
+    padding: .125rem .4375rem;
+    border: 1px solid var(--jjk-border);
+    border-radius: .3125rem;
+    background: var(--jjk-raised);
+    color: var(--jjk-muted);
+    font-size: .6875rem;
+    font-weight: 650;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-brief,
+.jjk-mission-desk .jjk-desk-location {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-location {
+    color: var(--jjk-muted);
+    font-size: .8125rem;
+}
+
+.jjk-mission-desk .jjk-desk-box {
+    display: grid;
+    gap: .375rem;
+    padding: .75rem .875rem;
+    border: 1px solid var(--jjk-border);
+    border-radius: .625rem;
+    background: var(--jjk-raised);
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-box.is-complication {
+    border-color: #645140;
+    border-left: .1875rem solid var(--jjk-accent);
+    background: #2a282c;
+}
+
+.jjk-mission-desk .jjk-desk-box.is-report {
+    border-color: #3e6559;
+    border-left: .1875rem solid var(--jjk-success);
+}
+
+.jjk-mission-desk .jjk-desk-box.is-report .jjk-desk-label {
+    color: var(--jjk-success);
+}
+
+.jjk-mission-desk .jjk-desk-box p {
+    font-size: .875rem;
+}
+
+.jjk-mission-desk .jjk-desk-progress {
+    display: grid;
+    gap: .5rem;
+}
+
+.jjk-mission-desk .jjk-desk-progress-count {
+    color: var(--jjk-muted);
+    font-variant-numeric: tabular-nums;
+    font-size: .75rem;
+}
+
+.jjk-mission-desk .jjk-desk-meter {
+    display: block;
+    width: 100%;
+    height: .375rem;
+    overflow: hidden;
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background: var(--jjk-border);
+}
+
+.jjk-mission-desk .jjk-desk-meter::-webkit-progress-bar {
+    border-radius: 999px;
+    background: var(--jjk-border);
+}
+
+.jjk-mission-desk .jjk-desk-meter::-webkit-progress-value {
+    border-radius: 999px;
+    background: var(--jjk-accent);
+}
+
+.jjk-mission-desk .jjk-desk-meter::-moz-progress-bar {
+    border-radius: 999px;
+    background: var(--jjk-accent);
+}
+
+.jjk-mission-desk .jjk-desk-objectives {
+    display: grid;
+    gap: .375rem;
+    padding: 0;
+    list-style: none;
+}
+
+.jjk-mission-desk .jjk-desk-objective {
+    display: grid;
+    grid-template-columns: 1.125rem minmax(0, 1fr);
+    align-items: start;
+    gap: .5625rem;
+    min-height: 2.375rem;
+    padding: .4375rem .625rem;
+    border: 1px solid var(--jjk-border);
+    border-radius: .5rem;
+    background: var(--jjk-raised);
+    font-size: .8125rem;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk label.jjk-desk-objective {
+    cursor: pointer;
+}
+
+.jjk-mission-desk label.jjk-desk-objective:hover,
+.jjk-mission-desk .jjk-desk-objective:focus-within {
+    border-color: var(--jjk-accent-muted);
+}
+
+.jjk-mission-desk .jjk-desk-objective.is-done {
+    border-color: #3e6559;
+}
+
+.jjk-mission-desk .jjk-desk-objective input {
+    position: static;
+    width: 1rem;
+    height: 1rem;
+    margin: .125rem 0 0;
+    appearance: auto;
+    accent-color: var(--jjk-accent);
+    cursor: pointer;
+}
+
+.jjk-mission-desk .jjk-desk-objective-num {
+    color: var(--jjk-accent);
+    font-size: .6875rem;
+    font-weight: 750;
+    line-height: 1.85;
+}
+
+.jjk-mission-desk .jjk-desk-btn {
+    display: inline-grid;
+    place-items: center;
+    min-height: 2.5rem;
+    margin: 0;
+    padding: .4375rem .8125rem;
+    border: 1px solid var(--jjk-border);
+    border-radius: .5rem;
+    background: var(--jjk-raised);
+    color: var(--jjk-ink);
+    font: inherit;
+    font-size: .8125rem;
+    font-weight: 720;
+    text-align: center;
+    cursor: pointer;
+}
+
+.jjk-mission-desk .jjk-desk-btn:hover:not(:disabled) {
+    border-color: var(--jjk-accent-muted);
+    background: #263349;
+}
+
+.jjk-mission-desk .jjk-desk-btn.is-primary {
+    border-color: var(--jjk-accent);
+    background: var(--jjk-accent);
+    color: #21170f;
+}
+
+.jjk-mission-desk .jjk-desk-btn.is-primary:hover:not(:disabled) {
+    border-color: #ffda9e;
+    background: #ffda9e;
+}
+
+.jjk-mission-desk .jjk-desk-btn.is-danger {
+    color: var(--jjk-critical);
+}
+
+.jjk-mission-desk .jjk-desk-btn:disabled {
+    opacity: .65;
+    cursor: default;
+}
+
+.jjk-mission-desk .jjk-desk-close {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 2.5rem;
+    padding: 0;
+    background: #182337ed;
+    font-size: 1.375rem;
+    line-height: 1;
+}
+
+.jjk-mission-desk .jjk-desk-settings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .375rem;
+}
+
+.jjk-mission-desk .jjk-desk-settings .jjk-desk-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .375rem;
+    min-height: 2rem;
+    padding: .25rem .5rem;
+    font-size: .6875rem;
+}
+
+.jjk-mission-desk .jjk-desk-btn[aria-pressed]::before {
+    width: .375rem;
+    height: .375rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    content: "";
+}
+
+.jjk-mission-desk .jjk-desk-btn[aria-pressed="true"] {
+    border-color: #3e6559;
+    color: var(--jjk-success);
+}
+
+.jjk-mission-desk .jjk-desk-btn[aria-pressed="true"]::before {
+    background: currentColor;
+}
+
+.jjk-mission-desk .jjk-desk-history {
+    padding: 0 1.25rem;
+    border-top: 1px solid var(--jjk-border);
+}
+
+.jjk-mission-desk .jjk-desk-history summary {
+    padding: .6875rem 0;
+    color: var(--jjk-muted);
+    font-size: .8125rem;
+    font-weight: 680;
+    cursor: pointer;
+}
+
+.jjk-mission-desk .jjk-desk-history summary::marker {
+    color: var(--jjk-accent);
+}
+
+.jjk-mission-desk .jjk-desk-history-list {
+    display: grid;
+    gap: .375rem;
+    max-height: 12rem;
+    padding: 0 0 .75rem;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.jjk-mission-desk .jjk-desk-history-item {
+    display: grid;
+    gap: .125rem;
+    padding: .375rem .625rem;
+    border-left: 2px solid var(--jjk-border);
+    font-size: .8125rem;
+    overflow-wrap: anywhere;
+}
+
+.jjk-mission-desk .jjk-desk-footer {
+    padding: .6875rem 1.25rem .75rem;
+    border-top: 1px solid var(--jjk-border);
+    color: var(--jjk-muted);
+    font-size: .75rem;
+}
+
+@media (max-width: 420px) {
+    .jjk-mission-desk .jjk-desk-header,
+    .jjk-mission-desk .jjk-desk-body,
+    .jjk-mission-desk .jjk-desk-history,
+    .jjk-mission-desk .jjk-desk-footer {
+        padding-inline: .8125rem;
+    }
+
+    .jjk-mission-desk .jjk-desk-header::after {
+        right: -3rem;
+        opacity: .66;
+    }
+
+    .jjk-mission-desk .jjk-desk-actions .jjk-desk-btn {
+        flex: 1 1 auto;
+    }
+}
